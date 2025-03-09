@@ -1,0 +1,26 @@
+name: Run Tkinter GUI
+
+on: [push, pull_request]
+
+jobs:
+  run-gui:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          sudo apt-get update && sudo apt-get install -y xvfb  # Install virtual display
+
+      - name: Run TicTacToe GUI
+        run: |
+          xvfb-run --auto-servernum python app.py  # Run the GUI inside a virtual display
