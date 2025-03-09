@@ -1,0 +1,5 @@
+unittest  # Only if you are using unit testing
+pillow
+numpy
+pytest
+tkinter
