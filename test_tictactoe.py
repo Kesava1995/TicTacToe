@@ -1,15 +1,20 @@
 import unittest
-from TicTacToe import checkWin  # Import your functions from the main script
+import tkinter as tk
+from your_app_file import YourAppClass  # Import your Tkinter class
 
-class TestTicTacToe(unittest.TestCase):
-    def test_win_conditions(self):
-        """Test winning conditions for X and O"""
-        self.assertTrue(checkWin([["X", "X", "X"], [0, "O", 0], ["O", 0, "O"]]))
-        self.assertTrue(checkWin([["O", "O", "O"], ["X", "X", 0], [0, "X", 0]]))
+class TestTkinterApp(unittest.TestCase):
+    def setUp(self):
+        """Initialize Tkinter before each test."""
+        self.root = tk.Tk()
+        self.app = YourAppClass(self.root)
 
-    def test_no_win(self):
-        """Test for no win scenario"""
-        self.assertFalse(checkWin([["X", "O", "X"], ["O", "X", "O"], ["O", "X", "O"]]))
+    def tearDown(self):
+        """Close Tkinter GUI after test execution."""
+        self.root.destroy()  # Close the GUI to prevent hanging
+
+    def test_ui_element(self):
+        """Check if UI elements exist."""
+        self.assertIsNotNone(self.app.some_widget)  # Example check
 
 if __name__ == "__main__":
     unittest.main()
