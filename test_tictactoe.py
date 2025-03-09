@@ -1,6 +1,6 @@
 import unittest
 import tkinter as tk
-from your_app_file import YourAppClass  # Import your Tkinter class
+from TicTacToe import YourAppClass  # Import your Tkinter class
 
 class TestTkinterApp(unittest.TestCase):
     def setUp(self):
