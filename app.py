@@ -44,7 +44,6 @@ def select_entry(event):
 def printXO(symbol):
     """Insert 'X' or 'O' into the selected Entry box."""
     if selected_entry is None:
-        print("Error: No entry selected")  # Debugging message
         return  # Prevent further execution
     if selected_entry:
         selected_entry.delete(0, tk.END)  # Clear previous value
@@ -93,21 +92,19 @@ def checkWin():
             for j in range(1,len(X)-1):
                 for k in range(2,len(X)):
                     test=[X[i],X[j],X[k]]
-                    print(test)
                     if test in check:
                         flag=1
                         status_label.config(text="X:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
                         clear_entries()
                         reset()
                         return True
-        for i in range(0,len(X)-2):
-            for j in range(1,len(X)-1):
-                for k in range(2,len(X)):
-                    test=[X[i],X[j],X[k]]
-                    print(test)
+        for i in range(0,len(O)-2):
+            for j in range(1,len(O)-1):
+                for k in range(2,len(O)):
+                    test=[O[i],O[j],O[k]]
                     if test in check:
                         flag=1
-                        status_label.config(text="X:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
+                        status_label.config(text="O:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
                         clear_entries()
                         reset()
                         return True
