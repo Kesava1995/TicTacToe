@@ -1,5 +1,5 @@
 import unittest
-from TicTacToe import checkWin  # Import your functions from the main script
+from TTT import checkWin  # Import your functions from the main script
 
 class TestTicTacToe(unittest.TestCase):
     def test_win_conditions(self):
