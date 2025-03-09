@@ -18,9 +18,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          sudo apt-get update && sudo apt-get install -y xvfb  # Install virtual display
+		  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          sudo apt-get install -y xvfb  # Install virtual display
 
-      - name: Run TicTacToe Tests
+      - name: Run TicTacToe Tests with Debugging
         run: |
-          xvfb-run --auto-servernum python -m unittest discover
+          timeout 300s xvfb-run --auto-servernum python -m unittest discover -v
