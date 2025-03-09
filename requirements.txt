@@ -1,5 +1,4 @@
-unittest  # Only if you are using unit testing
+tkinter
 pillow
 numpy
 pytest
-tkinter
