@@ -70,7 +70,6 @@ def checkDraw():
                     c+=1
         if c==9:
             status_label.config(text="Draw Match", font=("Arial", 12, "bold"), fg="blue")
-            clear_entries()
             reset()
 
 def checkWin():
@@ -78,13 +77,11 @@ def checkWin():
     if X in check and O not in check:
         flag=1
         status_label.config(text="X:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
-        clear_entries()
         reset()
         return True
     elif O in check and X not in check:
         flag=1
         status_label.config(text="O:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
-        clear_entries()
         reset()
         return True
     elif X not in check and O not in check:
@@ -95,7 +92,6 @@ def checkWin():
                     if test in check:
                         flag=1
                         status_label.config(text="X:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
-                        clear_entries()
                         reset()
                         return True
         for i in range(0,len(O)-2):
@@ -105,7 +101,6 @@ def checkWin():
                     if test in check:
                         flag=1
                         status_label.config(text="O:Winner of the Match", font=("Arial", 12, "bold"), fg="blue")
-                        clear_entries()
                         reset()
                         return True
     if flag==0:return False
@@ -142,8 +137,11 @@ buttonX.grid(row=4, column=0, columnspan=1, padx=5, pady=5)
 buttonO = Button(frame, text="O", command=lambda: printXO("O"), bg="blue", fg="white", font=("Monotype Corsiva", 16))
 buttonO.grid(row=4, column=2, columnspan=1, padx=5, pady=5)
 
+buttonclear=Button(frame, text="Clear All", command=lambda: clear_entries(), bg="red", fg="white", font=("Monotype Corsiva", 16))
+buttonclear.grid(row=5, column=0, columnspan=3, padx=5, pady=5)
+
 status_label = Label(root, text="Status: Waiting for action...", bg="light yellow", fg="maroon", font=("Arial", 10, "bold"))
-status_label.grid(row=5, column=0, columnspan=3, padx=5, pady=5)
+status_label.grid(row=6, column=0, columnspan=3, padx=5, pady=5)
 
 #Run App
 if __name__ == "__main__":
